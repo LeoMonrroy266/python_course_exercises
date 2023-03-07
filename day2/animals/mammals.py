@@ -1,12 +1,26 @@
-#!/bin/usr/env python
+#!/usr/bin/python3
 
 class Mammals:
     def __init__(self):
         ''' Constructor for this class. '''
         # Create some member animals
         self.members = ['Tiger', 'Elephant', 'Wild Cat']
+        self.harmless = ['Elephant', 'Wild Cat']
+        self.dangerous = ['Tiger']
+        self.state = ''
 
     def printMembers(self):
-        print('Printing members of the Mammals class')
+        translate = {'': '', 0: 'harmless', 1: 'dangerous'}
+        print(f'Printing members of the {translate[self.state]} Mammals class')
         for member in self.members:
             print('\t%s ' % member)
+
+    def Dangerous(self):
+        self.members = self.dangerous
+        self.state = 1
+        return self
+
+    def Harmless(self):
+        self.members = self.harmless
+        self.state = 0
+        return self
